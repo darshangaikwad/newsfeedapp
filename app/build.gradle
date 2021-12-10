@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.darshangaikwad.mvvm_kotlin_with_koin"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    /**Google libraries*/
+    implementation libraries.kotlin
+    implementation libraries.core_ktx
+    implementation libraries.appcompat_v7
+    implementation libraries.constraint
+    testImplementation libraries.junit
+    implementation libraries.google
+    implementation libraries.coroutines
+    implementation libraries.lifecycle
+    implementation libraries.design
+    implementation libraries.retrofit
+    implementation libraries.koin
+
+    implementation 'com.karumi:dexter:4.2.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+}
